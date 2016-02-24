@@ -7,32 +7,35 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class SubbredditsController extends Controller
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
-        return \App\Subbreddit::all();
+        return \App\Comment::all();
     }
 
+
     /**
-     * Show the form for creating a new resource.
+     * Store a newly created resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $subbreddit = new \App\Subbreddit;
-        $subbreddit->user_id = \Auth::user()->id;
-        $subbreddit->name = $request->name;
-        $subbreddit->description = $request->description;
-        $subbreddit->save();
+        $comment = new \App\Comment;
+        $comment->user_id = \Auth::user->$id;
+        $comment->comment_id = $request->comment_id;
+        $comment->content = $request->comment_content;
+    
         
-        return $subbreddit;
+        $comment->save();
+        return $comment;
     }
 
     /**
@@ -43,24 +46,23 @@ class SubbredditsController extends Controller
      */
     public function show($id)
     {
-        return \App\Subbreddit::with(['post.comments.parentComment','user'])->find($id);
+        return \App\Comment::find($id);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function update(Request $request, $id)
     {
-        $subbreddit = \App\Subbreddit::find($id);
-        $subbreddit->name = $request->name;
-        $subbreddit->description = $request->description;
-        $subbreddit->save();
+        $comment = \App\Comment::find($id);
+        $comment->content = $request->comment_content;
+        $comment->save();
         
-        return $subbreddit;
+        return $comment;
     }
 
     /**
@@ -71,9 +73,8 @@ class SubbredditsController extends Controller
      */
     public function destroy($id)
     {
-        $subbreddit = \App\Subbreddit::find($id);
-        $subbreddit->delete();
-        return $subbreddit;
-        
+        $comment = \App\Comment::find($id);
+        $comment->delete();
+        return $comment;
     }
 }
