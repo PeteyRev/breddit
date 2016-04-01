@@ -1,0 +1,5 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/petearevalo/Documents/Small Projects/ACA/breddit/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/respond.min.js"
+    ]
+}

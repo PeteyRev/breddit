@@ -11,22 +11,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 50)->create()->each(function($u) {
-        $u->subbreddits()->save(factory(App\Subbreddit::class)->make());
+        $users = factory(App\User::class, 50)->create();
             
-        $u->posts()->save(factory(App\Post::class)->make([
-               'subbreddit_id' => rand(1,App\Subbreddit::all()->count())
-        ]));
+        $users->each(function($u) {
+            $subbreddit = factory(App\Subbreddit::class)->make();
+//            $subbreddit->user_id = $u->id;
+//            $subbreddit->save();
+            $u->subbreddits()->save($subbreddit);
             
-        $u->comments()->save(factory(App\Comment::class)->make([
-               'post_id' => rand(1,App\Subbreddit::all()->count())
-        ]));
-        
-        $u->comments()->save(factory(App\Comment::class)->make([
-               'comment_id' => rand(1,App\Subbreddit::all()->count())
-        ]));
+            $post = factory(App\Post::class)->make();
+            $post->subbreddit_id = rand(1,App\Subbreddit::all()->count());
             
-        $u->subscribedSubbreddits()->attach(rand(1,App\Subbreddit::all()->count()));
+            $u->posts()->save($post);
+
+            $u->comments()->save(factory(App\Comment::class)->make([
+                   'post_id' => rand(1,App\Subbreddit::all()->count())
+            ]));
+
+            $u->comments()->save(factory(App\Comment::class)->make([
+                   'comment_id' => rand(1,App\Subbreddit::all()->count())
+            ]));
+
+            $u->subscribedSubbreddits()->attach(rand(1,App\Subbreddit::all()->count()));
         });
     }
 }
