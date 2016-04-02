@@ -32,7 +32,7 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->content = $request->post_content;
         $post->subbreddit_id = $request->subbreddit_id;
-        $post->user_id = \Auth::user->$id;
+        $post->user_id = \Auth::user()->id;
         $post->url = $request->url;
         
         $post->save();

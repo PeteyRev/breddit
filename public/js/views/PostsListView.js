@@ -1,3 +1,6 @@
+var Backbone = require('backbone');
+var _ = require('underscore');
+
 var PostsListView = Backbone.View.extend({
 		el: '<ul></ul>',
 		template: _.template('\

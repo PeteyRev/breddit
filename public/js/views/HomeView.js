@@ -1,3 +1,6 @@
+var Backbone = require('backbone');
+var _ = require('underscore');
+
 var HomeView = Backbone.View.extend({
 		el:'\
 			<div class="container">\

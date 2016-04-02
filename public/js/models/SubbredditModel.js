@@ -1,3 +1,4 @@
+var Backbone = require('backbone');
 
 	var SubbredditModel = Backbone.Model.extend({
 		urlRoot: 'subbreddits/',
