@@ -17,7 +17,7 @@ class Subbreddit extends Model
     /** 
      * Get the post for the subbreddit.
      */
-    public function post()
+    public function posts()
     {
         return $this->hasMany('App\Post');
     }

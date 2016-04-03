@@ -6,6 +6,7 @@ var Backbone = require('backbone');
 
 		parse: function(response) {
 			if (response.posts) {
+        var PostsCollection = require('../collections/PostsCollection.js');
 				response.posts = new PostsCollection(response.posts);
 			}
 			return response;
