@@ -43,7 +43,7 @@ class SubbredditsController extends Controller
      */
     public function show($id)
     {
-        return \App\Subbreddit::with(['post.comments.parentComment','user'])->find($id);
+        return \App\Subbreddit::with(['posts.comments.parentComment','user'])->find($id);
     }
 
     /**
