@@ -11,7 +11,7 @@
 
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
             font-size: 14px;
@@ -31,7 +31,10 @@
     
 </head>
 <body>
+   <div id="nav"></div>
     <div id="content"></div>
+    <div id="modal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog"></div>
+    <div data-user-id="{{ $userId }}"></div>
     <!-- JavaScripts -->
     <script src="{{ asset('js/bundle.js') }}"></script>
 

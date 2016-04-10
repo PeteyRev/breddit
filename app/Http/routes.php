@@ -26,6 +26,10 @@ Route::resource('comments', 'CommentsController', [
     'except' => ['edit','create']
 ]);
 
+Route::resource('users', 'UsersController', [
+    'only' => ['show']
+]);
+
 
 
 /*
