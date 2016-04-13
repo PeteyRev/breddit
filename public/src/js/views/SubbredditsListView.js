@@ -9,7 +9,7 @@ var SubbredditsListView = Backbone.View.extend({
 			<% subbreddits.each(function(subbreddit) { %>\
 				<li><a data-id="<%= subbreddit.id %>" href="#" id="subbreddit"><%= subbreddit.get("name")%></a></li>\
 			<% }) %>\
-            <li><a href="#" data-reveal-id="modal" id="add-subbreddit">Click Me For A Modal</a>\
+            <li><a href="#" data-reveal-id="modal" id="add-subbreddit">Click to add subbreddit</a>\
 		'),
         
           events: {

@@ -10,8 +10,8 @@ var UserModel = require('../models/UserModel.js');
 var HomeView = Backbone.View.extend({
 	el:'\
 		<div class="container">\
-			<div class="row">\
-				<div class="small-7 columns">\
+              <div class="small-7 columns">\
+                    <h3 class="text-center">Posts</h3>\
 					<div class="row">\
 						<div class="small-12 columns" id="posts"></div>\
 					</div>\
@@ -29,7 +29,6 @@ var HomeView = Backbone.View.extend({
 					  <div class="content" id="subscribed-subbreddits"></div>\
 					</div>\
 				</div>\
-			</div>\
 		</div>\
 	',
 

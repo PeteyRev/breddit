@@ -15,22 +15,21 @@ el:'<div></div>',
     '),
 
     events: {
-
-        'submit form': function(event){
-            event.preventDefault();
-            var subbreddit = new SubbredditModel({
-                name: $(event.target).find('[name="name"]').val(),
-                description: $(event.target).find('[name="description"]').val()
-            });
-            subbreddit.save(null,{
-                success: function(){
-                 this.collection.add(subbreddit);
-                 $('#modal').foundation('reveal', 'close');
-                }
-            });
-
-        },
-    },
+		'submit form': function(event) {
+			var that = this;
+			event.preventDefault();
+			var subbreddit = new SubbredditModel({
+				name: $(event.target).find('[name="name"]').val(),
+				description: $(event.target).find('[name="description"]').val()
+			});
+			subbreddit.save(null, {
+				success: function() {
+					that.collection.add(subbreddit);
+					$('#modal').foundation('reveal', 'close');
+				}
+			});
+		}
+	},
 
     render: function() {
         this.$el.html(this.template());
